@@ -3,13 +3,14 @@ import express from 'express';
 import mongoose from 'mongoose';
 import { GridFSBucket, ObjectId } from 'mongodb';
 import { addProduct, deleteProduct, getAllCategories, getAvailableCategories, getProduct, getProductByCategory, getProducts, getProductsBySeller, getTopProductsService, updateProduct } from './services/products.mjs';
-import multer from 'multer';
 import uploadToGridFS from './utils/imageUploader.mjs';
+import cors from 'cors'
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT;
 app.use(express.json({limit: '50mb'}));
+app.use(cors())
 
 
 app.listen(PORT, () => {
