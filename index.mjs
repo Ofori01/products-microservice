@@ -40,6 +40,7 @@ app.post('/api/addProduct',async (req, res) => {
         const newProduct = await addProduct(seller_id, title, description, price, stock_quantity, category,imageId);
         res.status(200).send(newProduct);
     } catch (error) {
+        console.log(error)
         res.status(500).send({msg: `${error.message}`})
         
     }
