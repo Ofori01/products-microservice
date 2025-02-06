@@ -33,8 +33,9 @@ async function updateProduct(product_id,product){
     }
 }
 
-async function deleteProduct(product_id){
+async function deleteProduct(productId){
     try {
+        const product_id =Mongoose.
         return await ProductModel.findOneAndDelete({product_id});
     } catch (error) {
         throw error;
