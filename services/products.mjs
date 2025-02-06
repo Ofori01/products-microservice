@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import ProductModel from "../model/productsSchema.mjs";
 import deleteFromGridFS from "../utils/deleteFromBucket.mjs";
 import uploadToGridFS from "../utils/imageUploader.mjs";
@@ -35,8 +36,10 @@ async function updateProduct(product_id,product){
 
 async function deleteProduct(productId){
     try {
-        const product_id =Mongoose.
-        return await ProductModel.findOneAndDelete({product_id});
+        const product_id = mongoose.Types.ObjectId(productId); 
+        const deletedProduct=  await ProductModel.findOneAndDelete({product_id: product_id});
+        ProductModel.de
+        return deletedProduct;
     } catch (error) {
         throw error;
     }
