@@ -36,7 +36,7 @@ async function updateProduct(product_id,product){
 
 async function deleteProduct(productId){
     try {
-        const product_id = mongoose.Types.ObjectId(productId); 
+        const product_id = new mongoose.Types.ObjectId(productId); 
         const deletedProduct=  await ProductModel.findOneAndDelete({product_id: product_id});
         ProductModel.de
         return deletedProduct;
